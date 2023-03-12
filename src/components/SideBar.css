@@ -1,6 +1,9 @@
 .sidebar {
   @apply w-[240px];
 }
+.sidebar_hidden {
+  @apply invisible opacity-0;
+}
 .display {
   @apply w-full p-1 shadow-md mb-3;
 }
@@ -16,6 +19,9 @@
 }
 .button-calculator {
   @apply flex items-center justify-center rounded-md border border-gray-500 font-medium text-sm;
+}
+.button-calculator_pointer_none {
+  @apply pointer-events-none;
 }
 .operators__button {
   @apply w-[52px] h-[48px];
@@ -37,4 +43,7 @@
 }
 .equal__button {
   @apply w-full h-[64px] bg-blue rounded-md flex items-center justify-center text-white;
+}
+.equal__button_pointer_none {
+  @apply pointer-events-none;
 }

@@ -1,3 +1,5 @@
+import { useActions } from 'hooks/useActions';
+import { useTypedSelector } from 'hooks/useTypedSelector';
 import { FC } from 'react';
 
 import { eyeGray, selectorBlue } from '../utils/images';
@@ -5,10 +7,23 @@ import { eyeGray, selectorBlue } from '../utils/images';
 import './SwitchMenu.css';
 
 const SwitchMenu: FC = () => {
+  const { toggleConstructorMode } = useActions();
+  const { isConstructorMode } = useTypedSelector(state => state.app);
+
+  const handleSwitchButton = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    toggleConstructorMode();
+  };
+
   return (
     <div className="switch-menu">
       <div className="switch-menu__toggle-buttons">
-        <button className="switch-menu__toggle-button toggle-button">
+        <button
+          className={`switch-menu__toggle-button toggle-button ${
+            !isConstructorMode ? 'toggle-button_active' : ''
+          }`}
+          onClick={handleSwitchButton}
+        >
           <img
             className="toggle-button__icon"
             src={eyeGray}
@@ -16,7 +31,12 @@ const SwitchMenu: FC = () => {
           />
           <p className="toggle-button__text">Runtime</p>
         </button>
-        <button className="switch-menu__toggle-button toggle-button toggle-button_active">
+        <button
+          className={`switch-menu__toggle-button toggle-button ${
+            isConstructorMode ? 'toggle-button_active' : ''
+          }`}
+          onClick={handleSwitchButton}
+        >
           <img
             className="toggle-button__icon"
             src={selectorBlue}
