@@ -1,0 +1,12 @@
+.canvas {
+  @apply w-[243px] h-full border-2 border-dashed border-gray-300 rounded-md flex flex-col items-center justify-center text-center;
+}
+.canvas__icon {
+  @apply mb-3;
+}
+.canvas__text-action {
+  @apply font-medium text-[14px] text-blue mb-1 leading-[17px];
+}
+.canvas__text {
+  @apply text-xs text-gray-600 block w-[106px];
+}

@@ -1,0 +1,6 @@
+.app {
+  @apply h-screen flex items-center justify-center bg-gray-200;
+}
+.app__wrapper {
+  @apply max-w-[695px] w-full bg-white;
+}

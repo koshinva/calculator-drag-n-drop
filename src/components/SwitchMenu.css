@@ -1,0 +1,21 @@
+.switch-menu {
+  @apply flex flex-row-reverse mb-[30px];
+}
+.switch-menu__toggle-buttons {
+  @apply w-[243px] flex justify-between bg-gray-100 rounded-md p-[1px];
+}
+.toggle-buttons {
+  @apply flex items-center;
+}
+.toggle-button {
+  @apply flex items-center justify-center px-3 py-2 bg-transparent border-none;
+}
+.toggle-button_active {
+  @apply border border-gray-500 rounded-[5px] bg-white;
+}
+.toggle-button__icon {
+  @apply mr-2;
+}
+.toggle-button__text {
+  @apply font-medium text-gray-400 text-sm;
+}

@@ -1,0 +1,6 @@
+.calculator {
+  @apply h-[640px] pt-[38px] pr-[80px] pb-[86px] pl-[76px] flex flex-col;
+}
+.calculator__wrapper {
+  @apply flex justify-between flex-initial;
+}
