@@ -1,5 +1,5 @@
 .operators {
-  @apply w-full p-1 shadow-md;
+  @apply w-full p-1;
 }
 .operators__body {
   @apply flex justify-between;

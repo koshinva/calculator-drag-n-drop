@@ -1,7 +1,10 @@
 .sidebar {
   @apply w-[240px];
 }
-.sidebar > div:not(:last-child) {
+.sidebar > .calculator-block {
+  @apply shadow-md;
+}
+.sidebar > .calculator-block:not(:last-child) {
   @apply mb-3;
 }
 .sidebar_hidden {

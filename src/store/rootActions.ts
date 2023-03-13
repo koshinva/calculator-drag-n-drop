@@ -1,3 +1,3 @@
-import { toggleConstructorMode } from './appSlice';
+import * as appActions from './appSlice';
 
-export const allActions = { toggleConstructorMode };
+export const allActions = { ...appActions };

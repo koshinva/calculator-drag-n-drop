@@ -1,5 +1,14 @@
-.canvas {
+.canvas_no-empty {
+   @apply w-[243px] h-full flex flex-col;
+}
+.canvas_no-empty > .calculator-block:not(:last-child) {
+  @apply mb-3;
+}
+.canvas_empty {
   @apply w-[243px] h-full border-2 border-dashed border-gray-300 rounded-md flex flex-col items-center justify-center text-center;
+}
+.canvas_bg_light-blue {
+  @apply bg-lightBlue;
 }
 .canvas__icon {
   @apply mb-3;

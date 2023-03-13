@@ -1,5 +1,5 @@
 .figures {
-  @apply w-full p-1 shadow-md;
+  @apply w-full p-1;
 }
 .figures__body {
   @apply flex justify-between flex-wrap-reverse gap-y-2;

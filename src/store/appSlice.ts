@@ -2,9 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IInitialState } from 'types';
 import { getRandomId } from 'utils/getRandomId';
 
-
 const initialState: IInitialState = {
   isConstructorMode: true,
+  currentDragBlock: null,
+  currentDragField: null,
   blocks: {
     display: { id: getRandomId(), type: 'display' },
     equal: { id: getRandomId(), type: 'equal' },
@@ -13,12 +14,12 @@ const initialState: IInitialState = {
   },
   sidebar: {
     title: 'sidebar',
-    blocks: ['display', 'operators', 'figures', 'equal']
+    blocks: ['display', 'operators', 'figures', 'equal'],
   },
   canvas: {
     title: 'constructor',
-    blocks: []
-  }
+    blocks: [],
+  },
 };
 
 const appSlice = createSlice({
@@ -28,9 +29,17 @@ const appSlice = createSlice({
     toggleConstructorMode(state) {
       state.isConstructorMode = !state.isConstructorMode;
     },
+    setCurrentDragBlock(state, { payload }) {
+      state.currentDragBlock = payload;
+    },
+    addBlockInCanvas(state) {
+      if (state.currentDragBlock) {
+        state.canvas.blocks.push(state.currentDragBlock);
+      }
+    },
   },
 });
 
-export const { toggleConstructorMode } = appSlice.actions;
+export const { toggleConstructorMode, setCurrentDragBlock, addBlockInCanvas } = appSlice.actions;
 
 export default appSlice.reducer;

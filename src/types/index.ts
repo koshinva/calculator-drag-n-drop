@@ -12,6 +12,8 @@ export interface IConstructor {
 
 export interface IInitialState {
   isConstructorMode: boolean;
+  currentDragBlock: null | TypeKeyBlocks;
+  currentDragField: 'sidebar' | 'canvas' | null;
   blocks: Record<TypeKeyBlocks, IValueBlocks>;
   sidebar: IConstructor;
   canvas: IConstructor;
