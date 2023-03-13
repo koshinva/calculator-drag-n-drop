@@ -1,0 +1,12 @@
+.figures {
+  @apply w-full p-1 shadow-md;
+}
+.figures__body {
+  @apply flex justify-between flex-wrap-reverse gap-y-2;
+}
+.figures__button {
+  @apply w-[72px] h-[48px] flex items-center justify-center rounded-md border border-gray-500 font-medium text-sm;
+}
+.figures__button_wide {
+  @apply w-[152px];
+}

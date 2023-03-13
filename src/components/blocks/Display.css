@@ -1,0 +1,7 @@
+.display {
+  @apply w-full p-1 shadow-md;
+}
+.display__body {
+  @apply py-1 px-2 font-extrabold text-4xl text-right bg-gray-100 rounded-md;
+  line-height: 44px;
+}

@@ -1,6 +1,8 @@
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import { FC } from 'react';
 
+import './Operators.css';
+
 const operators = ['/', 'x', '-', '+'];
 
 const Operators: FC = () => {
@@ -8,14 +10,14 @@ const Operators: FC = () => {
   return (
     <div className="operators">
       <div className="operators__body">
-        {operators.map((o, index) => (
+        {operators.map((operator, index) => (
           <button
-            className={`operators__button button-calculator ${
-              isConstructorMode ? 'button-calculator_pointer_none' : ''
+            className={`operators__button ${
+              isConstructorMode ? 'pointer-events-none' : ''
             }`}
             key={index}
           >
-            {o}
+            {operator}
           </button>
         ))}
       </div>

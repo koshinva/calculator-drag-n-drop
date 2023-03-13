@@ -1,11 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IInitialState } from 'types';
+import { getRandomId } from 'utils/getRandomId';
 
-interface IInitialState {
-  isConstructorMode: boolean;
-}
 
 const initialState: IInitialState = {
   isConstructorMode: true,
+  blocks: {
+    display: { id: getRandomId(), type: 'display' },
+    equal: { id: getRandomId(), type: 'equal' },
+    operators: { id: getRandomId(), type: 'operators' },
+    figures: { id: getRandomId(), type: 'figures' },
+  },
+  sidebar: {
+    title: 'sidebar',
+    blocks: ['display', 'operators', 'figures', 'equal']
+  },
+  canvas: {
+    title: 'constructor',
+    blocks: []
+  }
 };
 
 const appSlice = createSlice({

@@ -1,15 +1,17 @@
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import { FC } from 'react';
 
+import './Figures.css';
+
 const figures = ['0', ',', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 const Figures: FC = () => {
   const { isConstructorMode } = useTypedSelector(store => store.app);
 
   const checkClassButton = (figure: string): string => {
-    return `figures__button button-calculator ${
+    return `figures__button ${
       figure === '0' ? 'figures__button_wide' : ''
-    } ${isConstructorMode ? 'button-calculator_pointer_none' : ''}`;
+    } ${isConstructorMode ? 'pointer-events-none' : ''}`;
   };
 
   return (

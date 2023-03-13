@@ -1,13 +1,15 @@
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import { FC } from 'react';
 
+import './Equal.css';
+
 const Equal: FC = () => {
   const { isConstructorMode } = useTypedSelector(state => state.app);
   return (
     <div className="equal">
       <button
         className={`equal__button ${
-          isConstructorMode ? 'equal__button_pointer_none' : ''
+          isConstructorMode ? 'pointer-events-none' : ''
         }`}
       >
         =

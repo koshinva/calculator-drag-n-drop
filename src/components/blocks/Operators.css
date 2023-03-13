@@ -1,0 +1,9 @@
+.operators {
+  @apply w-full p-1 shadow-md;
+}
+.operators__body {
+  @apply flex justify-between;
+}
+.operators__button {
+  @apply w-[52px] h-[48px] flex items-center justify-center rounded-md border border-gray-500 font-medium text-sm;
+}
