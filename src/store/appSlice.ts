@@ -39,6 +39,9 @@ const appSlice = createSlice({
     setBlockUnderDrag(state, { payload }: { payload: TypeKeyBlocks | null }) {
       state.currentBlockUnderDrag = payload;
     },
+    removeBlockFromCanvas(state, { payload }: { payload: TypeKeyBlocks }) {
+      state.canvas.blocks = state.canvas.blocks.filter(block => block !== payload);
+    },
     addBlockInCanvas(state) {
       if (state.currentDragBlock) {
         const indexBlockUnderDrop = state.canvas.blocks.findIndex(
@@ -90,6 +93,7 @@ export const {
   addBlockInCanvas,
   setCurrentDragField,
   setBlockUnderDrag,
+  removeBlockFromCanvas,
 } = appSlice.actions;
 
 export default appSlice.reducer;

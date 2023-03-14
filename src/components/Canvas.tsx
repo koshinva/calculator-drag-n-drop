@@ -25,6 +25,7 @@ const Canvas: FC = () => {
     setCurrentDragBlock,
     setCurrentDragField,
     setBlockUnderDrag,
+    removeBlockFromCanvas,
   } = useActions();
 
   const handlerDragOverCanvas = (e: React.DragEvent<HTMLDivElement>) => {
@@ -72,6 +73,10 @@ const Canvas: FC = () => {
     setBlockUnderDrag(null);
   };
 
+  const handleDoubleClick = (block: TypeKeyBlocks) => {
+    removeBlockFromCanvas(block);
+  }
+
   return (
     <div
       className={`${
@@ -97,6 +102,7 @@ const Canvas: FC = () => {
               onDragOver={event => handlerDragOverBlock(event, block)}
               onDragLeave={event => handlerDragLeaveBlock(event)}
               onDragStart={() => handleDragStart(block)}
+              onDoubleClick={() => handleDoubleClick(block)}
               className={`calculator-block ${
                 block === currentBlockUnderDrag ? 'canvas__blue-line' : ''
               } ${
