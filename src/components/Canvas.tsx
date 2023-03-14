@@ -8,42 +8,77 @@ import Block from './Block';
 import './Canvas.css';
 
 const Canvas: FC = () => {
-  const [dragOverCanvas, setDragOverCanvas] = useState<boolean>(false);
-  const { canvas, blocks } = useTypedSelector(store => store.app);
-  const { addBlockInCanvas } = useActions();
+  const [dragOverEmptyCanvas, setDragOverEmptyCanvas] =
+    useState<boolean>(false);
+  const [dragOverFilledCanvas, setDragOverFilledCanvas] =
+    useState<boolean>(false);
+  useState<boolean>(false);
+  const {
+    canvas,
+    blocks,
+    currentBlockUnderDrag,
+    currentDragField,
+    isConstructorMode,
+  } = useTypedSelector(store => store.app);
+  const {
+    addBlockInCanvas,
+    setCurrentDragBlock,
+    setCurrentDragField,
+    setBlockUnderDrag,
+  } = useActions();
 
   const handlerDragOverCanvas = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (!canvas.blocks.length) {
-      setDragOverCanvas(true);
+      setDragOverEmptyCanvas(true);
+      return;
+    }
+    if (currentBlockUnderDrag === null && currentDragField === 'sidebar') {
+      setDragOverFilledCanvas(true);
+    } else {
+      setDragOverFilledCanvas(false);
     }
   };
 
   const handlerDrugLeaveCanvas = () => {
-    setDragOverCanvas(false);
+    setDragOverEmptyCanvas(false);
+    setDragOverFilledCanvas(false);
   };
 
   const handlerDragOverBlock = (
     event: React.DragEvent<HTMLDivElement>,
     block: TypeKeyBlocks
-  ) => {};
+  ) => {
+    event.preventDefault();
+    if (block === 'display') return;
+    setBlockUnderDrag(block);
+  };
 
-  const handlerDragLeaveBlock = (
-    event: React.DragEvent<HTMLDivElement>,
-    block: TypeKeyBlocks
-  ) => {};
+  const handlerDragLeaveBlock = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    setBlockUnderDrag(null);
+  };
+
+  const handleDragStart = (block: TypeKeyBlocks) => {
+    setCurrentDragBlock(block);
+    setCurrentDragField('canvas');
+  };
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     addBlockInCanvas();
-    setDragOverCanvas(false);
+    setDragOverEmptyCanvas(false);
+    setDragOverFilledCanvas(false);
+    setBlockUnderDrag(null);
   };
 
   return (
     <div
       className={`${
         !canvas.blocks.length ? 'canvas_empty' : 'canvas_no-empty'
-      } ${dragOverCanvas ? 'canvas_bg_light-blue' : ''}`}
+      } ${dragOverEmptyCanvas ? 'canvas_bg_light-blue' : ''} ${
+        dragOverFilledCanvas ? 'canvas_last-child-blue-line' : ''
+      }`}
       onDragOver={handlerDragOverCanvas}
       onDragLeave={handlerDrugLeaveCanvas}
       onDrop={event => handleDrop(event)}
@@ -58,9 +93,19 @@ const Canvas: FC = () => {
         <>
           {canvas.blocks.map(block => (
             <div
+              draggable={block !== 'display' && isConstructorMode}
               onDragOver={event => handlerDragOverBlock(event, block)}
-              onDragLeave={event => handlerDragLeaveBlock(event, block)}
-              className="calculator-block"
+              onDragLeave={event => handlerDragLeaveBlock(event)}
+              onDragStart={() => handleDragStart(block)}
+              className={`calculator-block ${
+                block === currentBlockUnderDrag ? 'canvas__blue-line' : ''
+              } ${
+                isConstructorMode
+                  ? block !== 'display'
+                    ? 'cursor-grab'
+                    : 'cursor-no-drop'
+                  : 'cursor-auto'
+              }`}
             >
               <Block
                 key={blocks[block].id}

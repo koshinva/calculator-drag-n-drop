@@ -1,8 +1,24 @@
 .canvas_no-empty {
-   @apply w-[243px] h-full flex flex-col;
+  @apply w-[243px] h-full flex flex-col;
 }
 .canvas_no-empty > .calculator-block:not(:last-child) {
   @apply mb-3;
+}
+.canvas_last-child-blue-line > .calculator-block:last-child,
+.canvas__blue-line {
+  @apply relative;
+}
+.canvas_last-child-blue-line > .calculator-block:last-child::after,
+.canvas__blue-line::after {
+  @apply absolute h-[6px] left-0 w-full block;
+  content: '';
+  background: url('../images/blue-line.svg') 0 50%/100% no-repeat;
+}
+.canvas_last-child-blue-line > .calculator-block:last-child::after {
+  top: calc(100% + 4px);
+}
+.canvas__blue-line::after {
+  @apply  -top-[8px];
 }
 .canvas_empty {
   @apply w-[243px] h-full border-2 border-dashed border-gray-300 rounded-md flex flex-col items-center justify-center text-center;
