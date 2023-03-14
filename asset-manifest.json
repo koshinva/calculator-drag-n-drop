@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/calculator-drag-n-drop/static/css/main.2a6f66e8.css",
+    "main.js": "/calculator-drag-n-drop/static/js/main.1ad73f86.js",
+    "static/media/Inter-ExtraBold.woff": "/calculator-drag-n-drop/static/media/Inter-ExtraBold.d0fa3bb2b7c9063dc594.woff",
+    "static/media/Inter-Medium.woff": "/calculator-drag-n-drop/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Regular.woff": "/calculator-drag-n-drop/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-ExtraBold.woff2": "/calculator-drag-n-drop/static/media/Inter-ExtraBold.cbe0ae49c52c920fd563.woff2",
+    "static/media/Inter-Medium.woff2": "/calculator-drag-n-drop/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Regular.woff2": "/calculator-drag-n-drop/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/canvas-icon.svg": "/calculator-drag-n-drop/static/media/canvas-icon.ff2a0d409c14819260b08f919e659b64.svg",
+    "static/media/eye-blue.svg": "/calculator-drag-n-drop/static/media/eye-blue.8a9b2af1309604aa7bc175ea5f8ad45f.svg",
+    "static/media/eye-gray.svg": "/calculator-drag-n-drop/static/media/eye-gray.1e033d8501f85bfd21633e578c03792e.svg",
+    "index.html": "/calculator-drag-n-drop/index.html",
+    "static/media/selector-blue.svg": "/calculator-drag-n-drop/static/media/selector-blue.ee3c963368e3309f4abd09780b240d16.svg",
+    "static/media/selector-gray.svg": "/calculator-drag-n-drop/static/media/selector-gray.40dc10876101ac38240b7a55c8211b97.svg",
+    "static/media/blue-line.svg": "/calculator-drag-n-drop/static/media/blue-line.9ea9e9f8fcda458ea456.svg",
+    "main.2a6f66e8.css.map": "/calculator-drag-n-drop/static/css/main.2a6f66e8.css.map",
+    "main.1ad73f86.js.map": "/calculator-drag-n-drop/static/js/main.1ad73f86.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a6f66e8.css",
+    "static/js/main.1ad73f86.js"
+  ]
+}
