@@ -5,7 +5,10 @@
   @apply flex justify-between flex-wrap-reverse gap-y-2;
 }
 .figures__button {
-  @apply w-[72px] h-[48px] flex items-center justify-center rounded-md border border-gray-500 font-medium text-sm;
+  @apply w-[72px] h-[48px] flex items-center justify-center rounded-md border border-gray-500 font-medium text-sm transition-colors;
+}
+.figures__button:hover {
+  @apply border-2 border-blue;
 }
 .figures__button_wide {
   @apply w-[152px];

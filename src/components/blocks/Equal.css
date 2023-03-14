@@ -2,5 +2,8 @@
   @apply w-full p-1;
 }
 .equal__button {
-  @apply w-full h-[64px] bg-blue rounded-md flex items-center justify-center text-white;
+  @apply w-full h-[64px] bg-blue rounded-md flex items-center justify-center text-white transition-opacity;
+}
+.equal__button:hover {
+  @apply opacity-80;
 }
