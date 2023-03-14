@@ -62,6 +62,13 @@ const calculateSlice = createSlice({
         state.displayedValue = transformNumberToString(result);
       }
     },
+    resetCalculator(state) {
+      state.displayedValue = '0';
+      state.firstNumber = '';
+      state.secondNumber = '';
+      state.currentOperator = null;
+      state.clickedEqualButton =  false;
+    },
   },
 });
 
@@ -71,5 +78,6 @@ export const {
   setCurrentOperator,
   calculateResult,
   setClickedEqualButton,
+  resetCalculator,
 } = calculateSlice.actions;
 export default calculateSlice.reducer;

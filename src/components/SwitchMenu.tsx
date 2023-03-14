@@ -7,15 +7,19 @@ import { eyeGray, selectorBlue } from '../utils/images';
 import './SwitchMenu.css';
 
 const SwitchMenu: FC = () => {
-  const { toggleConstructorMode } = useActions();
+  const { toggleConstructorMode, resetCalculator } = useActions();
   const { isConstructorMode, canvas, sidebar } = useTypedSelector(
     state => state.app
   );
 
   const handleSwitchButton = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+
     if (sidebar.blocks.length !== canvas.blocks.length) return;
+
     toggleConstructorMode();
+    
+    resetCalculator();
   };
 
   return (
@@ -24,7 +28,11 @@ const SwitchMenu: FC = () => {
         <button
           className={`switch-menu__toggle-button toggle-button ${
             !isConstructorMode ? 'toggle-button_active' : ''
-          } ${sidebar.blocks.length !== canvas.blocks.length ? 'cursor-default' : ''}`}
+          } ${
+            sidebar.blocks.length !== canvas.blocks.length
+              ? 'cursor-default'
+              : ''
+          }`}
           onClick={handleSwitchButton}
         >
           <img
