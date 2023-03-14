@@ -74,6 +74,7 @@ const Canvas: FC = () => {
   };
 
   const handleDoubleClick = (block: TypeKeyBlocks) => {
+    if (!isConstructorMode) return;
     removeBlockFromCanvas(block);
   }
 
@@ -98,6 +99,7 @@ const Canvas: FC = () => {
         <>
           {canvas.blocks.map(block => (
             <div
+              key={blocks[block].id}
               draggable={block !== 'display' && isConstructorMode}
               onDragOver={event => handlerDragOverBlock(event, block)}
               onDragLeave={event => handlerDragLeaveBlock(event)}
@@ -113,10 +115,7 @@ const Canvas: FC = () => {
                   : 'cursor-auto'
               }`}
             >
-              <Block
-                key={blocks[block].id}
-                type={blocks[block].type as TypeKeyBlocks}
-              />
+              <Block type={blocks[block].type as TypeKeyBlocks} />
             </div>
           ))}
         </>
