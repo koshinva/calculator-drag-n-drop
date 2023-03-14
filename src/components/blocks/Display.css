@@ -5,5 +5,5 @@
   @apply py-1 px-2 flex justify-end items-end bg-gray-100 rounded-md min-h-[52px];
 }
 .display__content {
-  @apply font-extrabold text-4xl leading-[44px] inline-block;
+  @apply font-extrabold text-4xl leading-[44px] inline-block text-ellipsis overflow-hidden;
 }

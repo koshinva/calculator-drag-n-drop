@@ -6,7 +6,11 @@ import {
   TypeOperators,
 } from 'types/calculate.types';
 
-import { calculating, setNumber, transformNumberToString } from 'utils/calculate.helpers';
+import {
+  calculating,
+  setNumber,
+  transformNumberToString,
+} from 'utils/calculate.helpers';
 
 const initialState: IInitialState = {
   firstNumber: '',
@@ -40,6 +44,13 @@ const calculateSlice = createSlice({
     },
     calculateResult(state) {
       if (state.firstNumber && state.secondNumber && state.currentOperator) {
+        if (state.secondNumber === '0' && state.currentOperator === '/') {
+          state.displayedValue = 'Не определено';
+          state.firstNumber = '';
+          state.secondNumber = '';
+          state.currentOperator = null;
+          return;
+        }
         const result = calculating(
           Number(state.firstNumber),
           Number(state.secondNumber),
